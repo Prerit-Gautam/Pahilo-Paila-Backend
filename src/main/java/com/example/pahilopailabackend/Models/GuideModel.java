@@ -14,6 +14,15 @@ public class GuideModel {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = true)
+    private String website;
+
     @Column(nullable = false)
     private Double latitude;
 
@@ -32,8 +41,11 @@ public class GuideModel {
     public GuideModel() {
     }
 
-    public GuideModel(String name, Double latitude, Double longitude, List<String> languages, Integer rate) {
+    public GuideModel(String name, String email, String password, String website, Double latitude, Double longitude, List<String> languages, Integer rate) {
         this.name = name;
+        this.email = email;
+        this.password = password;
+        this.website = website;
         this.latitude = latitude;
         this.longitude = longitude;
         this.languages = languages;
@@ -55,6 +67,30 @@ public class GuideModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     public Double getLatitude() {
@@ -95,6 +131,8 @@ public class GuideModel {
         return "Guide{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", website='" + website + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", languages=" + languages +
